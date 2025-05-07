@@ -9,7 +9,7 @@ export default function ApiTestPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
   const [previewUrl, setPreviewUrl] = useState<string | null>(null)
   const [resultImage, setResultImage] = useState<string | null>(null)
-  const [jsonResult, setJsonResult] = useState<Record<string, any> | undefined>()
+  const [jsonResult, setJsonResult] = useState<string>('')
   const [loading, setLoading] = useState<boolean>(false)
   const [error, setError] = useState<string | null>(null)
   const [serverStatus, setServerStatus] = useState<string>('확인 필요')
@@ -29,7 +29,7 @@ export default function ApiTestPage() {
 
       // 이전 결과 초기화
       setResultImage(null)
-      setJsonResult({ test: 'test' })
+      setJsonResult('')
       setError(null)
     }
   }
@@ -40,10 +40,11 @@ export default function ApiTestPage() {
       setServerStatus('확인 중...')
       setError(null)
       const response = await axios.get(`http://52.79.154.30:5000/`)
+      console.log(response.data)
       setServerStatus('온라인')
     } catch (err) {
       setServerStatus('오프라인')
-      setError('서버 연결 실패')
+      setError(`서버 연결 실패 : ${err}`)
     }
   }
 
