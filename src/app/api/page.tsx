@@ -3,7 +3,7 @@
 import { useState } from 'react'
 import axios from 'axios'
 import Image from 'next/image'
-import useAppStore from '../../../store/Appstate'
+import useAppStore from '../store/Appstate'
 
 export default function ApiTestPage() {
   const [selectedFile, setSelectedFile] = useState<File | null>(null)
