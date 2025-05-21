@@ -1,95 +1,59 @@
-import Image from "next/image";
-import styles from "./page.module.css";
+'use client'
 
-export default function Home() {
+const navStyle: React.CSSProperties = {
+  width: '100%',
+  padding: '16px 0',
+  borderBottom: '1px solid #eee',
+  textAlign: 'center',
+  fontWeight: 700,
+  fontSize: 22,
+  letterSpacing: 2,
+  background: '#fff',
+}
+
+const mainImgStyle: React.CSSProperties = {
+  display: 'block',
+  margin: '32px auto 16px auto', // 버튼과의 간격 조정
+  maxWidth: 320,
+  width: '100%',
+  borderRadius: 16,
+  boxShadow: '0 4px 16px rgba(0,0,0,0.08)',
+}
+
+const btnStyle: React.CSSProperties = {
+  display: 'inline-flex', // 버튼을 가운데 정렬
+  justifyContent: 'center',
+  alignItems: 'center',
+  gap: 8,
+  padding: '8px 16px',
+  border: '1px solid #ddd',
+  borderRadius: 8,
+  background: '#f9f9f9',
+  cursor: 'pointer',
+}
+
+export default function Page() {
+  const toTestPage = () => {
+    window.location.href = '/api'
+  }
+
   return (
-    <div className={styles.page}>
-      <main className={styles.main}>
-        <Image
-          className={styles.logo}
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
+    <div>
+      <nav style={navStyle}>Hanamory</nav>
+      <div style={{ textAlign: 'center' }}>
+        <img
+          src='/image/flower_1.jpg'
+          alt='꽃 이미지'
+          style={mainImgStyle}
         />
-        <ol>
-          <li>
-            Get started by editing <code>src/app/page.tsx</code>.
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
-
-        <div className={styles.ctas}>
-          <a
-            className={styles.primary}
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className={styles.logo}
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-            className={styles.secondary}
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className={styles.footer}>
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
+        ㄴ
+        <button
+          style={btnStyle}
+          onClick={() => toTestPage()}
         >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
+          API 테스트 페이지로 이동
+        </button>
+      </div>
     </div>
-  );
+  )
 }
